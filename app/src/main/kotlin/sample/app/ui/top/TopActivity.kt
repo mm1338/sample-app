@@ -8,5 +8,10 @@ class TopActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_top)
+
+        val fragment = TopFragment()
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.add(R.id.containerLayout, fragment)
+        transaction.commit()
     }
 }
