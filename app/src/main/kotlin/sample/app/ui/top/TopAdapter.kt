@@ -10,16 +10,14 @@ import butterknife.bindView
 import sample.app.R
 
 
-class TopAdapter(itemImage : ArrayList<Int>, itemTitle : ArrayList<String>) : RecyclerView.Adapter<TopAdapter.ViewHolder>() {
-
+class TopAdapter(Images : ArrayList<Int>, Title : ArrayList<String>) : RecyclerView.Adapter<TopAdapter.ViewHolder>() {
+    val images = Images
+    val title = Title
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val itemImg : ImageView by bindView<ImageView>(R.id.item_img)
         val itemTitle : TextView by bindView<TextView>(R.id.item_title)
     }
-
-    val images = itemImage
-    val text = itemTitle
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val view : View = LayoutInflater.from(parent!!.context).inflate(R.layout.layout_news_list_item, parent, false)
@@ -28,11 +26,11 @@ class TopAdapter(itemImage : ArrayList<Int>, itemTitle : ArrayList<String>) : Re
     }
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
-        holder!!.itemTitle.text = text[position]
+        holder!!.itemTitle.text = title[position]
         holder!!.itemImg.setImageResource(images[position])
     }
 
     override fun getItemCount(): Int {
-        return text.size
+        return title.size
     }
 }

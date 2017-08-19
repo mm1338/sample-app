@@ -26,6 +26,6 @@ class MainFragment : Fragment() {
         Handler(Looper.getMainLooper()).postDelayed(Runnable {
             val intent = Intent(activity, TopActivity::class.java)
             startActivity(intent)
-        }, 2000)
+        }, 1000)
     }
 }

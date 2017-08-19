@@ -36,6 +36,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.0'
     compile "com.android.support:recyclerview-v7:26.0.1"
     compile 'com.jakewharton:kotterknife:0.1.0-SNAPSHOT'
+    compile 'com.android.support:design:26.0.1'
 }
 repositories {
     maven {
