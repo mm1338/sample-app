@@ -18,7 +18,7 @@ class MainFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        return inflater!!.inflate(R.layout.fragment_main, container, false)
+        return inflater?.inflate(R.layout.fragment_main, container, false)
     }
 
     override fun onResume() {
@@ -26,6 +26,6 @@ class MainFragment : Fragment() {
         Handler(Looper.getMainLooper()).postDelayed(Runnable {
             val intent = Intent(activity, TopActivity::class.java)
             startActivity(intent)
-        }, 2000)
+        }, 1000)
     }
 }
