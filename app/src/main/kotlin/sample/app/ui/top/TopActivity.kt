@@ -6,10 +6,16 @@ import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.View
+import butterknife.bindView
 import sample.app.R
 
 
 class TopActivity : AppCompatActivity() {
+
+    val toolbar : Toolbar by bindView<Toolbar>(R.id.toolBar)
+    val viewPager : ViewPager by bindView<ViewPager>(R.id.viewPager)
+    val tabLayout : TabLayout by bindView<TabLayout>(R.id.tabLayout)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_top)
@@ -17,13 +23,10 @@ class TopActivity : AppCompatActivity() {
     }
 
     private fun setViews() {
-        val toolbar = findViewById<View>(R.id.toolBar) as Toolbar
         setSupportActionBar(toolbar)
         val manager = supportFragmentManager
-        val viewPager = findViewById<View>(R.id.viewPager) as ViewPager
         val adapter = TopPagerAdapter(manager)
         viewPager.adapter = adapter
-        val tabLayout = findViewById<View>(R.id.tabLayout) as TabLayout
         tabLayout.setupWithViewPager(viewPager)
     }
 }

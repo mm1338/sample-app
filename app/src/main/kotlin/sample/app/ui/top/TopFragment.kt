@@ -25,12 +25,16 @@ class TopFragment : Fragment() {
         }
     }
 
+    val position : Int by lazy { arguments.getInt("position") }
+
     lateinit var recyclerView : RecyclerView
     lateinit var adapter : TopAdapter
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        val view = inflater!!.inflate(R.layout.fragment_top, container, false)
+        val view = inflater?.inflate(R.layout.fragment_top, container, false)
+
+        view ?: return view
 
         recyclerView = view.findViewById(R.id.top_recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(activity)
@@ -41,10 +45,8 @@ class TopFragment : Fragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val bundle : Bundle = arguments
-        val position : Int = bundle.getInt("position")
-        val title : ArrayList<String> = ArrayList()
-        val img : ArrayList<Int> = ArrayList()
+        val title = mutableListOf<String>()
+        val img = mutableListOf<Int>()
 
         when(position) {
             0 -> {
